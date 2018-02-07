@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mini Assignment 1</title>
+        
+        <style>
+            
+            body {
+                background-image:       url("map.jpg");
+                background-repeat:      no-repeat;
+                background-size:        stretch;
+                background-position:    top center;
+            }
+            
+            #pin {
+                position:               absolute;
+                left:                   0vw;
+                top:                    0vh;
+                height:                 50px;
+                width:                  50px;
+                z-index:                -1;
+
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <img src="bpin.png" id="pin" />
+        
+        <button id="rPin">      Red Pin     </button>
+        
+        <button id="bPin">      Blue Pin    </button>
+        
+        <button id="upB">       up          </button>
+        
+        <button id="downB">     down        </button>
+        
+        <button id="leftB">     left        </button>
+        
+        <button id="rightB">    right       </button>
+        
+        <button id="cMark" onclick="myFunction()">     Create Mark </button>
+
+        <input id="x" type="number" name="X-Axis" placeholder="X-Coordinates" value="0">
+        <input id="y" type="number" name="Y-axis" placeholder="Y-Coordinates" value="0">
+
+        
+
+        <script>
+            
+            var x       =       document.getElementById("x");
+            var y       =       document.getElementById("y");
+            var pin     =       document.getElementById("pin");
+            var rPin    =       document.getElementById("rPin");
+            var bPin    =       document.getElementById("bPin");
+            var upB     =       document.getElementById("upB");
+            var downB   =       document.getElementById("downB");
+            var leftB   =       document.getElementById("leftB");
+            var rightB  =       document.getElementById("rightB");
+            var cMark   =       document.getElementById("cMark");
+            var numV    =       0;
+            var numH    =       0;
+            
+
+            
+            rPin.addEventListener("click", function() {
+                pin.src = "rpin.png";
+            });
+            
+            bPin.addEventListener("click", function() {
+                pin.src = "bpin.png";
+            });
+            
+            upB.addEventListener("click", function() {
+                numV = parseInt(numV) - 5;
+                x.value = numH;
+                y.value = numV;
+                pin.style.top = numV + "vh";
+                pin.style.left = numH + "vw";
+            });
+            
+            downB.addEventListener("click", function() {
+                numV = parseInt(numV) + 5;
+                x.value = numH;
+                y.value = numV;
+                pin.style.top = numV + "vh";
+                pin.style.left = numH + "vw";
+            });
+            
+            leftB.addEventListener("click", function() {
+                numH = parseInt(numH) - 5;
+                x.value = numH;
+                y.value = numV;
+                pin.style.top = numV + "vh";
+                pin.style.left = numH + "vw";
+            });
+            
+            rightB.addEventListener("click", function() {
+                numH = parseInt(numH) + 5;
+                x.value = numH;
+                y.value = numV;
+                pin.style.top = numV + "vh";
+                pin.style.left = numH + "vw";
+            });
+                  
+            function myFunction() {
+                
+                numH = x.value;
+                numV = y.value;
+                var nPin = document.createElement("img");
+                nPin.style.position = "absolute";
+                nPin.src = pin.src;
+                nPin.style.top = (y.value) + "vh";
+                nPin.style.left = (x.value) + "vw";
+                nPin.style.height = "50px";
+                nPin.style.width = "50px";
+                nPin.style.zIndex = "-2";
+                document.body.appendChild(nPin);
+                x.value = numH;
+                y.value = numV;
+                pin.style.top = numV + "vh";
+                pin.style.left = numH + "vw";
+                                                
+            }
+            
+        </script>
+        
+    </body>
+</html>
